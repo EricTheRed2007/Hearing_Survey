@@ -323,7 +323,8 @@ class HearingThresholdStudy {
       this.elements.submitBtn.disabled = true;
       this.elements.submitBtn.textContent = 'Submitting...';
 
-      const response = await fetch('http://localhost:3000/submit', {
+      const API_URL = window.API_URL;
+      const response = await fetch(`${API_URL}/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
