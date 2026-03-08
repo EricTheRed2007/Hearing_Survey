@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hearing Threshold Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Hero Section -->
+    <section class="section active" id="heroSection">
+    <div class="hero-content">
+        <h1 class="hero-title">Hearing Threshold Study</h1>
+        <p class="hero-subtitle">This experiment investigates how headphone usage may affect hearing sensitivity across key frequencies.</p>
+        <p class="hero-description">
+        Participants will listen to pure tones and indicate when they can no longer hear them.
+        </p>
+
+        <button class="cta-button" id="startStudyBtn">
+        Begin Experiment
+        </button>
+    </div>
+    </section>
+
+  <!-- Questionnaire Section -->
+  <section class="section" id="questionnaireSection">
+    <div class="glass-card">
+      <h2>Participant Information</h2>
+      <form class="questionnaire-form" id="questionnaireForm">
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" id="age" min="16" max="100" placeholder="e.g. 25" required>
+        </div>
+        <div class="form-group">
+          <label for="headphoneHours">Hours of headphone use per day</label>
+          <input type="number" id="headphoneHours" min="0" max="24" step="0.5" placeholder="e.g. 3.5" required>
+        </div>
+        <div class="form-group">
+          <label for="yearsHeadphones">Years using headphones</label>
+          <input type="number" id="yearsHeadphones" min="0" max="80" placeholder="e.g. 5" required>
+        </div>
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="headphoneConfirm" required>
+            <span class="checkbox-custom"></span>
+            I confirm I am using headphones or earphones
+          </label>
+        </div>
+        <button type="submit" class="cta-button" id="startCalibrationBtn">
+          Start Calibration
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Calibration Section -->
+  <section class="section" id="calibrationSection">
+    <div class="glass-card">
+      <h2>Volume Calibration</h2>
+      <p class="calibration-instruction">
+        Adjust your device volume until the calibration tone is comfortable but clearly audible.
+      </p>
+      <div class="calibration-controls">
+        <button class="calibration-button" id="playCalToneBtn">
+          Play Calibration Tone (1000 Hz)
+        </button>
+        <button class="cta-button" id="volumeSetBtn" disabled>
+          Volume Set – Continue to Test
+        </button>
+      </div>
+      <p class="calibration-note">This establishes your 0 dBFS reference level.</p>
+    </div>
+  </section>
+
+  <!-- Hearing Test Section -->
+  <section class="section" id="testSection">
+    <div class="glass-card test-container">
+      <div class="test-header">
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <span class="progress-text" id="progressText">Step 1 of 32</span>
+        </div>
+        <h2 class="test-frequency" id="currentFrequency">500 Hz</h2>
+      </div>
+      
+      <div class="test-status" id="testStatus">
+        <p>Listen carefully to the tone. Click the appropriate button when ready.</p>
+      </div>
+
+      <div class="test-buttons">
+        <button class="test-button hear-btn" id="hearBtn" disabled>
+          <span class="button-icon">👂</span>
+          I Hear It
+        </button>
+        <button class="test-button nohear-btn" id="noHearBtn" disabled>
+          <span class="button-icon">🚫</span>
+          I Can't Hear It
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section class="section" id="resultsSection">
+    <div class="glass-card results-container">
+      <h2>Your Hearing Thresholds</h2>
+      <p class="results-subtitle">Relative thresholds in dBFS (lower values indicate better hearing sensitivity)</p>
+      
+      <div class="thresholds-grid" id="thresholdsGrid">
+        <!-- Populated by JavaScript -->
+      </div>
+      
+      <button class="cta-button submit-btn" id="submitResultsBtn">
+        Submit Results to Research
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Open research experiment. Data is anonymized and used only for scientific analysis.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
