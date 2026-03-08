@@ -20,7 +20,7 @@ app.post("/submit", async (req,res) => {
   console.log("Incoming submission:")
   console.log(JSON.stringify(req.body, null, 2))
 
-  // 2️⃣ Validate incoming data
+
   if(!data || !data.thresholds || !data.device_info){
     return res.status(400).json({error:"Invalid submission"})
   }
@@ -30,7 +30,6 @@ app.post("/submit", async (req,res) => {
 
   const row = {
 
-    // 4️⃣ Timestamp
     created_at: new Date(),
 
     id: data.participant_id,
@@ -55,7 +54,7 @@ app.post("/submit", async (req,res) => {
     .from("hearing_tests")
     .insert([row])
 
-  // 3️⃣ Handle duplicate submissions
+
   if(error){
 
     if(error.code === "23505"){

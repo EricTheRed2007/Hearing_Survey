@@ -1,9 +1,3 @@
-// script.js - Hearing Threshold Study Application
-/**
- * Complete implementation using Web Audio API and binary search algorithm
- * Measures relative hearing thresholds in dBFS across 4 frequencies
- */
-
 class HearingThresholdStudy {
   constructor() {
     // Test configuration
